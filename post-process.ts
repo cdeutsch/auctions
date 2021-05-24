@@ -13,9 +13,9 @@ const latest = await readJSON(LATEST_FILE);
 const auctions: any[] = await readJSON(FINAL_FILE);
 
 // Only add auctions we don't have.
-latest.forEach((auction: any) => {
+latest.items.reverse().forEach((auction: any) => {
   if (!auctions.find((aa) => aa.id === auction.id)) {
-    auctions.push(auction);
+    auctions.unshift(auction);
     console.log('NEW', auction);
   }
 });
