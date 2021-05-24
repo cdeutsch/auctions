@@ -30,8 +30,18 @@
   "tslint.run": "onSave",
   "tslint.trace.server": "verbose",
 
+  "cSpell.ignorePaths": [
+    "**/*.json",
+    "**/*.svg",
+    ".github",
+    "node_modules"
+  ],
   "cSpell.words": [
     "CDEUTSCH",
-    "Deutsch"
-  ]
+    "Deutsch",
+    "deno"
+  ],
+  "deno.enable": true,
+  "deno.lint": false,
+  "deno.unstable": true
 }

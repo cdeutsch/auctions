@@ -1,0 +1,28 @@
+name: data
+on:
+  schedule:
+    - cron: 0 0 * * * # Every day at 00:00
+  workflow_dispatch: {}
+  push:
+    paths:
+      - .github/workflows/flat.yml
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+      # This step installs Deno. Used for postprocessing.
+      - name: Setup deno
+        uses: denoland/setup-deno@main
+        with:
+          deno-version: v1.x
+      # Check out the repository so it can read the files inside of it and do other operations.
+      - name: Check out repo
+        uses: actions/checkout@v2
+      # Flat Action step. We fetch the data in the http_url and save it as downloaded_filename
+      - name: Fetch data
+        uses: githubocto/flat@v2
+        with:
+          http_url: https://bringatrailer.com/wp-json/bringatrailer/1.0/data/keyword-filter?page=1sort=td&results=items
+          downloaded_filename: latest-bat-auctions.json
+          postprocess: post-process.ts
+
