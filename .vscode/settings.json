@@ -1,0 +1,37 @@
+{
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  "files.exclude": {
+    "**/.git": true, // this is a default value
+    "**/.DS_Store": true, // this is a default value
+    "**/._.DS_Store": true,
+    "**/node_modules": true, // this excludes all folders
+    // named "node_modules" from
+    // the explore tree
+    // alternative version
+    "node_modules": true, // this excludes the folder
+    // only from the root of
+    // your workspace
+    "dist": true,
+    "static": true
+  },
+
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "tslint.packageManager": "npm",
+  "tslint.run": "onSave",
+  "tslint.trace.server": "verbose",
+
+  "cSpell.words": [
+    "CDEUTSCH",
+    "Deutsch"
+  ]
+}
